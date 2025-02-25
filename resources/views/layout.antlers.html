@@ -29,22 +29,22 @@
 <!-- <body class="flex h-full flex-col bg-zinc-50 dark:bg-black text-gray-800 dark:text-gray-300 font-sans"> -->
 
 <body class="antialiased bg-white dark:bg-black text-zinc-800 dark:text-zinc-300">
-    <div class="container mx-auto w-full lg:max-w-6xl py-8 px-8 bg-zinc-50 dark:bg-zinc-900">
+    <div class="container mx-auto w-full lg:max-w-6xl min-h-screen py-8 px-8 bg-[#f7f8f7] dark:bg-[#181b19]">
         <header class="flex items-center justify-end lg:justify-between space-x-4 px-6 py-4 md:px-8 mb-8">
             <div class="hidden lg:block h-10 w-10 rounded-full bg-teal-600"></div>
 
             <!-- Menu Button for Small Screens -->
             <button id="menu-toggle"
-                class="md:hidden flex items-center rounded-full bg-zinc-100 dark:bg-zinc-800 px-3 py-2 text-zinc-800 dark:text-zinc-200 cursor-pointer hover:text-teal-500 transition">
+                class="md:hidden flex items-center rounded-full bg-zinc-200/20 dark:bg-zinc-800 px-3 py-2 text-zinc-800 dark:text-zinc-200 cursor-pointer hover:text-teal-500 transition">
                 ☰ Menu
             </button>
 
             <nav
                 class="hidden md:flex items-center space-x-6 py-3 px-6 rounded-full bg-zinc-50 dark:bg-zinc-800 border border-zinc-100 dark:border-zinc-800 shadow-md shadow-zinc-200 dark:shadow-zinc-900">
-                {{ nav from="pages" include_home="true"}}
+                {{ nav:header }}
                 <a href="{{url}}"
-                    class="transition text-sm font-medium text-zinc-800 hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-400">{{title}}</a>
-                {{/nav}}
+                class="transition text-sm font-medium text-zinc-800 hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-400">{{title}}</a>
+                {{ /nav:header }}
 
             </nav>
 
@@ -95,9 +95,9 @@
                         class="top-4 right-4 p-2 text-black dark:text-white cursor-pointer">✖</button>
                 </div>
                 <nav class="flex flex-col space-y-4 divide-y-[0.5px] text-base text-sm ">
-                    {{ nav from="pages" include_home="true"}}
+                    {{ nav:header }}
                     <a href="{{url}}" class="py-2 hover:text-teal-500">{{title}}</a>
-                    {{/nav}}
+                    {{ /nav:header }}
                 </nav>
             </div>
         </div>
@@ -108,10 +108,12 @@
         <!-- footer -->
         <footer class="mt-8 border-t border-zinc-100 dark:border-zinc-800 w-full p-12 flex justify-center">
             <nav class="flex items-center space-x-4 py-3 px-6 ">
-                {{ nav from="pages" include_home="true"}}
+                {{ nav:header }}
                 <a href="{{url}}"
-                    class="text-sm font-medium text-zinc-800 hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-400">{{title}}</a>
-                {{/nav}}
+                    class="text-sm font-medium text-zinc-800 hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-400">
+                    {{title}}
+                </a>
+                {{ /nav:header }}
             </nav>
         </footer>
     </div>
