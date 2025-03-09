@@ -1,4 +1,4 @@
-title: Project
+title: Blog
 tabs:
   main:
     display: Main
@@ -32,34 +32,6 @@ tabs:
               type: template
               display: Template
               localizable: true
-          -
-            handle: media
-            field:
-              max_files: 2
-              min_files: 1
-              container: assets
-              type: assets
-              display: Media
-          -
-            handle: project_link
-            field:
-              type: link
-              display: 'Project Link'
-              instructions: 'Provide a link to the project'
-          -
-            handle: description
-            field:
-              type: text
-              display: Description
-              instructions: 'Provide a short description of the project'
-          -
-            handle: role
-            field:
-              placeholder: 'Role on this project'
-              type: text
-              display: Role
-      -
-        display: 'New Section'
   sidebar:
     display: Sidebar
     sections:

@@ -5,6 +5,12 @@ title: Blog
 author: 7f2e6803-269b-43ed-84dc-a2063dcacdfb
 template: blog/index
 updated_by: 7f2e6803-269b-43ed-84dc-a2063dcacdfb
-updated_at: 1740471004
+updated_at: 1741510705
 ---
-Sometimes I write things and I put them here.
+<h1 class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl font-henry">
+                        Sometimes I write articles and I put them here.
+</h1>
+
+<p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+Some of my random thoughts on programming and life.
+</p>
