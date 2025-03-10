@@ -8,42 +8,21 @@
     <title>{{ title ?? site:name }}</title>
     {{ vite src="resources/js/site.js|resources/css/site.css" }}
     <script>
-
-        document.addEventListener("DOMContentLoaded", () => {
-            // Theming
-            const themeToggle = document.getElementById("theme-toggle");
-            const sunIcon = document.getElementById("sun-icon");
-            const moonIcon = document.getElementById("moon-icon");
-
-            // Check for saved theme in localStorage
-            let theme = localStorage.getItem("theme");
-            if (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-                theme = "dark";
-            }
-            if (theme === "dark") {
-                document.documentElement.classList.add("dark");
-            }
-
-            // Set initial icon visibility
-            const isDark = document.documentElement.classList.contains("dark");
-            sunIcon.classList.toggle("hidden", isDark);
-            moonIcon.classList.toggle("hidden", !isDark);
-
-            // Toggle theme on button click
-            themeToggle.addEventListener("click", () => {
-                const isDark = document.documentElement.classList.toggle("dark");
-                localStorage.setItem("theme", isDark ? "dark" : "light");
-
-                // Toggle icons
-                sunIcon.classList.toggle("hidden", isDark);
-                moonIcon.classList.toggle("hidden", !isDark);
-            });
-        });
+        // Check for saved theme in localStorage or system preference
+        let theme = localStorage.getItem("theme");
+        if (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            theme = "dark";
+        }
+        if (theme === "dark") {
+            document.documentElement.classList.add("dark");
+        }
     </script>
 </head>
 
 
-<body class="antialiased flex flex-col h-full bg-zinc-50 dark:bg-black">
+<!-- <body class="antialiased flex flex-col h-full bg-zinc-50 dark:bg-black transition-colors"> -->
+<body class="font-sans antialiased flex flex-col h-full bg-zinc-50 dark:bg-black transition-colors">
+    
     <div class="fixed inset-0 flex justify-center sm:px-8">
         <div class="flex w-full max-w-7xl lg:px-8">
             <div class="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20"></div>
@@ -81,7 +60,7 @@
                     <div class="border-t border-zinc-100 pt-10 pb-16 dark:border-zinc-700/40">
                         <div class="relative px-4 sm:px-8 lg:px-12">
                             <div class="mx-auto max-w-2xl lg:max-w-5xl">
-                                <div class="flex flex-col items-center justify-center gap-6 sm:flex-row">
+                                <div class="flex flex-col items-center justify-center gap-6">
                                     <div
                                         class="flex lg:gap-6 gap-4 text-sm font-medium text-zinc-800 dark:text-zinc-200">
                                         {{ nav:header }}
@@ -90,6 +69,12 @@
                                             {{title}}
                                         </a>
                                         {{ /nav:header }}
+                                    </div>
+
+                                    {{partial:socials}}
+
+                                    <div class="text-sm text-zinc-800 dark:text-zinc-100 font-medium">
+                                        Copyright, <span id="copyright-year">2025</span> Ndyabagye Henry
                                     </div>
                                 </div>
                             </div>
@@ -115,6 +100,43 @@
     // Close Menu when backdrop is clicked
     document.getElementById("mobile-menu").addEventListener("click", function () {
         document.getElementById("mobile-menu").classList.add("hidden");
+    });
+
+    // Theming
+    document.addEventListener("DOMContentLoaded", () => {
+        // Theming
+        const themeToggle = document.getElementById("theme-toggle");
+        const sunIcon = document.getElementById("sun-icon");
+        const moonIcon = document.getElementById("moon-icon");
+
+        // Set initial icon visibility
+        const isDark = document.documentElement.classList.contains("dark");
+        sunIcon.classList.toggle("hidden", isDark);
+        moonIcon.classList.toggle("hidden", !isDark);
+
+        // Toggle theme on button click
+        themeToggle.addEventListener("click", () => {
+            const isDark = document.documentElement.classList.toggle("dark");
+            localStorage.setItem("theme", isDark ? "dark" : "light");
+
+            // Toggle icons
+            sunIcon.classList.toggle("hidden", isDark);
+            moonIcon.classList.toggle("hidden", !isDark);
+        });
+    });
+
+    // date stuff
+    document.addEventListener("DOMContentLoaded", () => {
+        const copyrightYearElement = document.getElementById("copyright-year");
+        const initialYear = 2023;
+        const currentYear = new Date().getFullYear();
+
+        // Update the copyright year text
+        if (currentYear > initialYear) {
+            copyrightYearElement.textContent = `${initialYear} - ${currentYear}`;
+        } else {
+            copyrightYearElement.textContent = `${initialYear}`;
+        }
     });
 </script>
 
