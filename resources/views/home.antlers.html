@@ -67,7 +67,7 @@
                 <div class="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
                     <div class="flex flex-col gap-16">
                         {{ collection:blog limit="5" }}
-                        <article class="group relative flex flex-col items-start">
+                        <article class="group relative flex flex-col items-start ">
                             <h2 class="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
                                 <div
                                     class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl">
@@ -127,8 +127,8 @@
                                             <img alt="" src="{{url}}" width="50" height="52" decoding="async"
                                                 data-nimg="1" class="h-7 w-7 object-contain" loading="lazy"
                                                 style="color:transparent">
+                                            </div>
                                             {{/media}}
-                                        </div>
                                         <dl class="flex flex-auto flex-wrap gap-x-2">
                                             <dt class="sr-only">Project Name</dt>
                                             <dd
@@ -139,7 +139,8 @@
                                                 {{role}}</dd>
                                             <dt class="sr-only">Date</dt>
                                             <dd class="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
-                                                aria-label="Time until Present"><time datetime="2019">{{date}}</time>
+                                                aria-label="Date project started"><time
+                                                    datetime="{{date}}">{{date}}</time>
                                                 <!-- <span aria-hidden="true">—</span> <time datetime="2025">Present</time> -->
                                             </dd>
                                         </dl>
@@ -150,13 +151,18 @@
 
 
 
-                            </ol><a
-                                class="inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition active:transition-none bg-zinc-50 font-medium text-zinc-900 hover:bg-zinc-100 active:bg-zinc-100 active:text-zinc-900/60 dark:bg-zinc-800/50 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:active:bg-zinc-800/50 dark:active:text-zinc-50/70 group mt-6 w-full"
-                                href="/projects">See more<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"
-                                    class="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50">
+                            </ol>
+                            <a
+                                class="inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition active:transition-none bg-zinc-50 font-medium text-zinc-900 hover:bg-zinc-200/70 active:bg-zinc-200 active:text-zinc-900/60 dark:bg-zinc-800/50 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:active:bg-zinc-800/50 dark:active:text-zinc-50/70 group mt-6 w-full transition-colors"
+                                href="/projects">
+                                See more
+                                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"
+                                    class="rotate-270 h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50">
                                     <path d="M4.75 8.75 8 12.25m0 0 3.25-3.5M8 12.25v-8.5" stroke-width="1.5"
-                                        stroke-linecap="round" stroke-linejoin="round"></path>
-                                </svg></a>
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                    </path>
+                                </svg>
+                            </a>
                         </div>
                     </div>
                 </div>
