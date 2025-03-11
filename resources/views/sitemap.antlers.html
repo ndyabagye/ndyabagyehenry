@@ -7,4 +7,20 @@
         <priority>{{ if url == homepage }}0.8{{ else }}0.5{{ /if }}</priority>
     </url>
     {{ /collection:pages }}
+    {{ collection:blog }}
+    <url>
+        <loc>{{ permalink }}</loc>
+        <lastmod>{{ last_modified format="Y-m-d" }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>{{ if url == homepage }}0.8{{ else }}0.5{{ /if }}</priority>
+    </url>
+    {{ /collection:blog }}
+    {{ collection:projects }}
+    <url>
+        <loc>{{ permalink }}</loc>
+        <lastmod>{{ last_modified format="Y-m-d" }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>{{ if url == homepage }}0.8{{ else }}0.5{{ /if }}</priority>
+    </url>
+    {{ /collection:projects }}
 </urlset>
